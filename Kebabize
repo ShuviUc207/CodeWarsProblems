@@ -1,0 +1,30 @@
+#Modify the kebabize function so that it converts a camel case string into a kebab case.
+
+#kebabize('camelsHaveThreeHumps') // camels-have-three-humps
+#kebabize('camelsHave3Humps') // camels-have-humps
+#Note: the returned string should only contain lowercase letters
+
+def kebabize(string):
+    new1 = ""
+    
+    for alpha in string:
+        if not alpha.isdigit():
+            new1 += alpha
+        else:
+            continue
+            
+    new = ""
+    count = True
+    
+    for i in new1:
+        if count:
+            new += i
+            count = False
+            continue
+        if i.isupper():
+            new = new + "-" + i
+        elif i.isdigit():
+            continue
+        else:
+            new += i    
+    return new.lower()
